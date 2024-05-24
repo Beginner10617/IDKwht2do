@@ -30,7 +30,7 @@ public class MainMenuManager : MonoBehaviour
     {
         OnClickSound.Play();
         Application.Quit();
-        Debug.Log("fuckYou");
+      
     }
     public void showInstructionPanel()
     {
@@ -41,8 +41,9 @@ public class MainMenuManager : MonoBehaviour
     public void back()
     {
         OnClickSound.Play();
-        InstructionPanel.SetActive(false);
+       
         Main.SetActive(true);
+        InstructionPanel.SetActive(false);
     }
 
 }

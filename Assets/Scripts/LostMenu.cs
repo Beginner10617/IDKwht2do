@@ -19,19 +19,24 @@ public class LostMenu : MonoBehaviour
     }
     public void restart()
     {
-        OnClickSound.Play();
+       // OnClickSound.Play();
         SceneManager.LoadScene(1);
     }
     public void menu()
     {
-        OnClickSound.Play();
+        //OnClickSound.Play();
+        
         SceneManager.LoadScene(0);
     }
     public void quit()
 
     {
-        OnClickSound.Play();
+        //OnClickSound.Play();
         Application.Quit();
+    }
+    public void playclickSound()
+    {
+        OnClickSound.Play();
     }
 
 }
