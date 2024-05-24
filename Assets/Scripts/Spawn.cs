@@ -13,9 +13,13 @@ public class Spawn : MonoBehaviour
     public float delay; //minimum time gap between 2 spawns
     float delay_time=0f;
     // Start is called before the first frame update
+    public float good_car_prob;//out of 100
+    public GameObject traffic_light;
+    RLGL control ;   
     void Start()
     {
         rnd = new System.Random();
+       
       //  Debug.Log(Pow(-1,1));
     }
 
@@ -34,7 +38,7 @@ public class Spawn : MonoBehaviour
                 x = rnd.Next(0, 8);
                 float X = lane_coordinate[x] + transform.position.x;
                 float Gravity =  gravity * Pow_1(x+1);
-                float Y =  start_line * Pow_1(x);
+                float Y =  start_line * Pow_1(x+1);
             //    Debug.Log(Pow(-1, x));
             //    Debug.Log(x);
                 Vector3 position = new Vector3(X, Y, 0);
@@ -42,6 +46,17 @@ public class Spawn : MonoBehaviour
                 Rigidbody2D rb = car.GetComponent<Rigidbody2D>();
                 rb.gravityScale = Gravity;
                 car.transform.localScale =  new Vector3(car.transform.localScale.x, car.transform.localScale.y*Pow_1(x+1), 1);
+                Car car_ = car.GetComponent<Car>();
+                car_.start_line = start_line;
+                car_.Gravity = Gravity;
+                car_.is_ok = (rnd.Next(0, 100) < good_car_prob);
+                car_.traffic_light=traffic_light;
+                if(car_.is_ok)
+                {
+                     RLGL control = traffic_light.GetComponent<RLGL>();
+    
+                    control.cars.Add(car);
+                }
             }
         }
     }

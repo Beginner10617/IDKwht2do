@@ -1,0 +1,70 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &8195697538707211950
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 6066666190268674335}
+  - component: {fileID: 9207385445422499751}
+  m_Layer: 0
+  m_Name: car
+  m_TagString: Player
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &6066666190268674335
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8195697538707211950}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 2.0925622, y: 0.76884204, z: -0.052405376}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &9207385445422499751
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8195697538707211950}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 72a3b31df42f24f23b315cd3d4353e25, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Cars:
+  - {fileID: 7742228751255111160, guid: dd13aaf46d9634df9912df88d707cb63, type: 3}
+  - {fileID: 3654355696772369799, guid: 817d75ecbd1c84f61a75ed11e0be2f8c, type: 3}
+  - {fileID: 8082025322024357456, guid: 49589a1cfc301441383fb137d7ea347c, type: 3}
+  - {fileID: 711446231544098971, guid: 241744709f23c43b3a1e96ef071bcf0d, type: 3}
+  - {fileID: 1378823596258754801, guid: 731aa8d1eb3c74bb085791c3cbbf2a13, type: 3}
+  - {fileID: 3986236776448439864, guid: 91b15b11d665547d78a320eeb9887b41, type: 3}
+  - {fileID: 8966889127016348982, guid: da987d7ba320142e5a1a706cd8805873, type: 3}
+  - {fileID: 1324275741051940543, guid: 003f4aec7518e409e9e25ceb5f1a54ca, type: 3}
+  lane_coordinate:
+  - -8.92
+  - -7.79
+  - -4.9
+  - -3.65
+  - -0.73
+  - 0.53
+  - 3.41
+  - 4.62
+  Car_density: 95
+  start_line: 10
+  gravity: 0.5
+  delay: 0.5
+  good_car_prob: 60
+  traffic_light: {fileID: 0}
