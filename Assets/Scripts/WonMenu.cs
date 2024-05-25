@@ -9,13 +9,11 @@ public class WonMenu : MonoBehaviour
 {
     public AudioSource OnClickSound;
     // Start is called before the first frame update
-    void Start()
+    public void Start()
     {
         
     }
-
-    // Update is called once per frame
-    void Update()
+    public void Update()
     {
         
     }
@@ -23,17 +21,20 @@ public class WonMenu : MonoBehaviour
     {
         OnClickSound.Play();
         SceneManager.LoadScene(1);
+        Debug.Log("chud");
     }
     public void menu()
     {
         OnClickSound.Play();
         SceneManager.LoadScene(0);
+        Debug.Log("raha");
     }
     public void quit()
 
     {
         OnClickSound.Play();
         Application.Quit();
+        Debug.Log("hai");
     }
 
 }
