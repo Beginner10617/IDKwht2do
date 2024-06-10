@@ -37,8 +37,8 @@ public class RLGL : MonoBehaviour
         {
             for(int i=0; i<cars.Count; i++)
             {
-                if(cars[i].GetComponent<Car>().on_cross == false)
-                {
+                if (cars[i] == null){}
+                else if(cars[i].GetComponent<Car>().is_ok){
                     Rigidbody2D rb2 = cars[i].GetComponent<Rigidbody2D>();
                     rb2.velocity = new Vector3(0,0,0);
                     rb2.gravityScale = 0;
@@ -59,6 +59,7 @@ public class RLGL : MonoBehaviour
                 }
                 
             }
+         
         }
     }
 }

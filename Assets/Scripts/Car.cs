@@ -6,9 +6,9 @@ public class Car : MonoBehaviour
 {
     // Start is called before the first frame update
     public float start_line;
+    public int lane;
     public float Gravity;
     public bool is_ok;
-    public bool on_cross = false;
     public GameObject traffic_light;
     RLGL control ;   
     void Start()
@@ -23,14 +23,10 @@ public class Car : MonoBehaviour
             Debug.Log("Game Over");//GAME OVER
             return;
         }
-        on_cross = true;
-        Debug.Log("on cross");
     }
 
     private void OnTriggerExit(Collider other)
     {
-        on_cross = false;
-        Debug.Log("off cross");
     }
     // Update is called once per frame
     void Update()
@@ -39,15 +35,19 @@ public class Car : MonoBehaviour
         {
             if(transform.position.y < -start_line)
             {
-        RLGL control = traffic_light.GetComponent<RLGL>();
+                RLGL control = traffic_light.GetComponent<RLGL>();
                 control.cars.Remove(gameObject);
-                Destroy(gameObject);}
+                transform.parent.gameObject.GetComponent<Spawn>().cars_in_lane[lane]-=1;
+                Destroy(gameObject);
+                }
+                
         }
         else
         {
             if(transform.position.y > start_line)
             {
-        RLGL control = traffic_light.GetComponent<RLGL>();
+                RLGL control = traffic_light.GetComponent<RLGL>();
+                transform.parent.gameObject.GetComponent<Spawn>().cars_in_lane[lane]-=1;
                 control.cars.Remove(gameObject);
                 Destroy(gameObject);}
         }

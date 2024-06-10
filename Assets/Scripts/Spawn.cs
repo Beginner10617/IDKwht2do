@@ -5,6 +5,8 @@ using System;
 public class Spawn : MonoBehaviour
 {
     public List<GameObject> Cars;
+    public List<int> cars_in_lane;
+    private List<int> empty_lanes = new List<int>();
     public List<float> lane_coordinate;
     System.Random rnd;// = new Random();
     public float Car_density;//out of 100
@@ -19,8 +21,10 @@ public class Spawn : MonoBehaviour
     void Start()
     {
         rnd = new System.Random();
-       
-      //  Debug.Log(Pow(-1,1));
+        for(int i=0; i<lane_coordinate.Count; i++){
+            cars_in_lane[i]=0;
+            empty_lanes.Add(i);
+        }
     }
 
     int Pow_1(int y){
@@ -39,24 +43,32 @@ public class Spawn : MonoBehaviour
                 float X = lane_coordinate[x] + transform.position.x;
                 float Gravity =  gravity * Pow_1(x+1);
                 float Y =  start_line * Pow_1(x+1);
-            //    Debug.Log(Pow(-1, x));
-            //    Debug.Log(x);
                 Vector3 position = new Vector3(X, Y, 0);
                 GameObject car = Instantiate(Cars[rnd.Next(0, 8)], position, Quaternion.identity, transform);
                 Rigidbody2D rb = car.GetComponent<Rigidbody2D>();
                 rb.gravityScale = Gravity;
                 car.transform.localScale =  new Vector3(car.transform.localScale.x, car.transform.localScale.y*Pow_1(x+1), 1);
                 Car car_ = car.GetComponent<Car>();
+                car_.lane = x;
                 car_.start_line = start_line;
                 car_.Gravity = Gravity;
-                car_.is_ok = (rnd.Next(0, 100) < good_car_prob);
+                if(traffic_light.GetComponent<RLGL>().Red.activeSelf){car_.is_ok = false;}
+                else{car_.is_ok = (rnd.Next(0,100)<good_car_prob);}
                 car_.traffic_light=traffic_light;
-                if(car_.is_ok)
+                
+                
+                if(traffic_light.GetComponent<RLGL>().Red.activeSelf && (car_.is_ok || cars_in_lane[car_.lane] != 0))
+                {
+                    Destroy(car);
+                    cars_in_lane[x]-=1;
+                }
+                else if(car_.is_ok)
                 {
                      RLGL control = traffic_light.GetComponent<RLGL>();
     
                     control.cars.Add(car);
                 }
+                cars_in_lane[x]+=1;
             }
         }
     }

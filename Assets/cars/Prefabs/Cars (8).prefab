@@ -113,7 +113,7 @@ Rigidbody2D:
   m_Interpolate: 0
   m_SleepingMode: 1
   m_CollisionDetection: 0
-  m_Constraints: 1
+  m_Constraints: 5
 --- !u!114 &-3303447690502638890
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -127,9 +127,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   start_line: 0
+  lane: 0
   Gravity: 0
   is_ok: 0
-  on_cross: 0
   traffic_light: {fileID: 0}
 --- !u!60 &-6339508485305749627
 PolygonCollider2D:
