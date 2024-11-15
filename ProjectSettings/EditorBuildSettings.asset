@@ -14,9 +14,6 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/LostMenu.unity
     guid: bb67b45c6eb1ee64aac16267deb4ba23
-  - enabled: 0
-    path: Assets/Scenes/WonMenu.unity
-    guid: e863cf702935b2442b16a1192256f80d
   - enabled: 1
     path: Assets/Scenes/WonMenuKi MKC.unity
     guid: e76e9196bbb0ea34394ba5d780dcc843

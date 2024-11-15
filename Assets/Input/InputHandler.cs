@@ -1,9 +1,11 @@
 //using System.Numerics;
+#if UNITY_EDITOR
+using UnityEditor.SearchService;
+#endif
 using UnityEngine;
 using UnityEngine.InputSystem;
 using System.Collections.Generic;
 using System.Collections;
-using UnityEditor.SearchService;
 using UnityEngine.SceneManagement;
 using TMPro;
 public class InputHandler : MonoBehaviour

@@ -773,7 +773,13 @@ PlayerSettings:
   XboxOneOverrideIdentityName: 
   XboxOneOverrideIdentityPublisher: 
   vrEditorSettings: {}
-  cloudServicesEnabled: {}
+  cloudServicesEnabled:
+    Build: 0
+    Game Performance: 0
+    Legacy Analytics: 0
+    Purchasing: 0
+    UDP: 0
+    Unity Ads: 0
   luminIcon:
     m_Name: 
     m_ModelFolderPath: 
@@ -793,11 +799,11 @@ PlayerSettings:
   apiCompatibilityLevel: 6
   activeInputHandler: 2
   windowsGamepadBackendHint: 0
-  cloudProjectId: 3ec0f6cb-be58-4f52-8331-2afe7fdf2cd4
+  cloudProjectId: ba42e957-6d32-4bee-985b-dc0e4066efbd
   framebufferDepthMemorylessMode: 0
   qualitySettingsNames: []
   projectName: Raod_watch
-  organizationId: crazyy23
+  organizationId: wasi-husain
   cloudEnabled: 0
   legacyClampBlendShapeWeights: 0
   hmiLoadingImage: {fileID: 0}
