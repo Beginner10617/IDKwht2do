@@ -14,7 +14,7 @@ public class InputHandler : MonoBehaviour
     #region Variables
     public Transform car;
     public int lives = 3;
-    public int points = 1;
+    public int points = 0;
     public Vector3 target;
     public Transform car1, car2;
     public float ttt = 60.0f;
@@ -32,7 +32,7 @@ public class InputHandler : MonoBehaviour
     {
         ttt -= Time.deltaTime;
         if (ttt <= 0) SceneManager.LoadScene(2);
-
+        UpdateScore();
     }
 
     public void OnClick(InputAction.CallbackContext context)
@@ -47,7 +47,6 @@ public class InputHandler : MonoBehaviour
         GameObject obj = rayHit.collider.gameObject;
         if(obj.transform.parent.gameObject.CompareTag("Player"))
         {
-            UpdateScore();
             if(obj.GetComponent<Car>().is_ok == false){
                 Debug.Log("Correct");
                 obj.transform.position = target;

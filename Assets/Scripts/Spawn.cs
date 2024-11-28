@@ -17,6 +17,7 @@ public class Spawn : MonoBehaviour
     // Start is called before the first frame update
     public float good_car_prob;//out of 100
     public GameObject traffic_light;
+    public Pause pause;
     RLGL control ;   
     void Start()
     {
@@ -34,6 +35,7 @@ public class Spawn : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if(pause.isPaused)   return;
         delay_time += Time.deltaTime;
         if(delay_time > delay){
             delay_time = 0f;
