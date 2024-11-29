@@ -18,6 +18,7 @@ public class InputHandler : MonoBehaviour
     public Vector3 target;
     public Transform car1, car2;
     public float ttt = 60.0f;
+    public RLGL trafficLight;
     
 
     private Camera _mainCamera;
@@ -47,7 +48,7 @@ public class InputHandler : MonoBehaviour
         GameObject obj = rayHit.collider.gameObject;
         if(obj.transform.parent.gameObject.CompareTag("Player"))
         {
-            if(obj.GetComponent<Car>().is_ok == false){
+            if(obj.GetComponent<Car>().is_ok == false && trafficLight.stop){
                 Debug.Log("Correct");
                 obj.transform.position = target;
                 points++;
@@ -58,14 +59,15 @@ public class InputHandler : MonoBehaviour
             }
             else{
                 Debug.Log("Wrong");
+                obj.transform.position = target;
                 lives--; 
                 points -= 3;
                 if(lives == 0)
                 {
                     SceneManager.LoadScene(2);
                 }
-                if(lives == 1) { car1.transform.position = target; }
-                else if(lives == 2) { car2.transform.position = target; }
+                //if(lives == 1) { car1.transform.position = target; }
+                //else if(lives == 2) { car2.transform.position = target; }
             }
            
         }

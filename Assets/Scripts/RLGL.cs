@@ -14,7 +14,7 @@ public class RLGL : MonoBehaviour
     public float pedest_speed;
     public float delay;
     float delay_time=0f;
-    bool stop = false;
+    public bool stop = false;
     void Start()
     {
         Red.SetActive(false);
